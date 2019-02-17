@@ -6,6 +6,10 @@ import { Product } from './product.model/product.model.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ProductComponent } from './product/product.component';
+import { PriceListComponent } from './price-list/price-list.component';
+import { ProductImageComponent } from './product-image/product-image.component';
+import { ProductRowComponent } from './product-row/product-row.component';
+import { VendorComponent } from './vendor/vendor.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +17,11 @@ import { ProductComponent } from './product/product.component';
     Product.ModelComponent,
     ProductListComponent,
     InventoryComponent,
-    ProductComponent
+    ProductComponent,
+    PriceListComponent,
+    ProductImageComponent,
+    ProductRowComponent,
+    VendorComponent
   ],
   imports: [
     BrowserModule
