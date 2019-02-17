@@ -6,23 +6,42 @@ import { Product } from '../vendor/product';
   template:
     `
     <div class="app-inventory">
-    <h1>{{ product.name }}</h1>
-    <span>{{ product.sku }}
+    <app-product-list
+    [productList] = "products">
+    (onProductSelected)="productWasSelected($event)">
+    </app-product-list>
     </div>
     `,
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-  product: Product;
+  products: Product[];
   constructor() {
-    this.product = new Product('MYSHOES',
-      'Black Runing Shoes',
+    this.products = [new Product(
+      'MYSHOES',
+      'Black Running Shoes',
       '/assets/images/products/black-shoes.jpg',
-      ['Men', 'Shoes', 'Runing Shoes'],
-      109.99);
+      ['Men', 'Shoes', 'Running Shoes'],
+      109.99),
+    // tslint:disable-next-line:no-unused-expression
+    new Product(
+      'NEATOJACKET',
+      'Blue Jacket',
+      '/assets/images/products/blue-jacket.jpg',
+      ['Women', 'Apparel', 'Jackets & Vests'],
+      238.99),
+    // tslint:disable-next-line:no-unused-expression
+    new Product(
+      'NICEHAT',
+      'A Nice Black Hat',
+      '/assets/images/products/black-hat.jpg',
+      ['Men', 'Accessories', 'Hats'],
+      29.99)];
   }
-
-  ngOnInit() {
+  productWasSelected(product: Product): void {
+    console.log('product cliked : ', product);
   }
+ngOnInit() {
+}
 
 }
